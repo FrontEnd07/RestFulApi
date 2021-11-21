@@ -1,0 +1,29 @@
+{
+  "name": "RestFulApi",
+  "version": "1.0.0",
+  "description": "\"# RestFulApi\"",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrontEnd07/RestFulApi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrontEnd07/RestFulApi/issues"
+  },
+  "homepage": "https://github.com/FrontEnd07/RestFulApi#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
