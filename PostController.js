@@ -1,10 +1,11 @@
 import Post from "./Post.js";
+import PostService from "./PostService.js";
+
 
 class PostController {
     async create(req, res) {
         try {
-            const {author, title, content, picture} = req.body
-            const post = await Post.create({author, title, content, picture})
+            const post = await PostService.create(req.body);
             res.json(post)
         } catch (e) {
             res.status(500).json(e);
@@ -13,7 +14,7 @@ class PostController {
 
     async getAll(req, res) {
         try {
-            const posts = await Post.find();
+            const posts = await PostService.getAll();
             return res.status(200).json(posts);
         } catch (e) {
             res.status(500).json(e);
@@ -23,10 +24,7 @@ class PostController {
     async getOne(req, res) {
         try {
             const {id} = req.params;
-            if (!id) {
-                return res.status(400).json({massage: "id не указан!"})
-            }
-            const post = await Post.findById(id);
+            const post = await PostService.getOne(id);
             return res.status(200).json(post);
         } catch (e) {
             res.status(500).json(e);
@@ -35,12 +33,8 @@ class PostController {
 
     async update(req, res) {
         try {
-
             const post = req.body;
-            if (!post._id) {
-                return res.status(400).json({massage: "id не указан!"});
-            }
-            const updatePost = await Post.findByIdAndUpdate(post._id, post, {new: true});
+            const updatePost = await PostService.update(post);
             return res.status(200).json(updatePost);
         } catch (e) {
             res.status(500).json(e);
@@ -50,10 +44,7 @@ class PostController {
     async delete(req, res) {
         try {
             const {id} = req.params;
-            if (!id) {
-                return res.status(400).json({massage: "id не указан!"});
-            }
-            const post = await Post.findByIdAndDelete(id)
+            const post = await PostService.delete(id)
             return res.status(200).json(post);
         } catch (e) {
             res.status(500).json(e);
