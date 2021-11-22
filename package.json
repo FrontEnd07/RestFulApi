@@ -20,8 +20,11 @@
   },
   "homepage": "https://github.com/FrontEnd07/RestFulApi#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "mongoose": "^6.0.13"
+    "express-fileupload": "^1.2.1",
+    "mongoose": "^6.0.13",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
